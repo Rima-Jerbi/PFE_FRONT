@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.header {
+  background-color: #A67C52;
+  color: white; /* Adjust the text color as needed */
+}
+.hero-section {
+  position: relative;
+  height: 24rem; /* You can adjust this value to achieve the desired height */
+}
+
+.hero-section .absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-section .relative {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-section h2 {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.hero-section button {
+  background-color: #A67C52; /* Use your light brown color */
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+

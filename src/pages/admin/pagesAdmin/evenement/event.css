@@ -1,0 +1,86 @@
+.event-list-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  display: flex; 
+  flex-wrap: wrap; 
+}
+
+.event-list li {
+  width: calc(50% - 100px); 
+  margin: auto ;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column; 
+  margin: 5px auto;
+}
+
+.event-list h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.event-list p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.button-container {
+  margin-top: auto; 
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.loading-message {
+  font-size: 18px;
+  color: #888;
+  text-align: center;
+}
+
+.error-message {
+  font-size: 18px;
+  color: #f00;
+  text-align: center;
+}
+
+.button-add {
+  background-color: #007bff; /* Green background */
+  border: none;
+  color: white; /* White text */
+  padding: 15px 32px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none;
+  display: inline-block; /* Make it inline */
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s; /* Smooth transition on hover */
+  cursor: pointer;
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid transparent; /* Transparent border */
+}
+
+.button-add:hover {
+  background-color:#006ee4; /* Darker green on hover */
+}
+
