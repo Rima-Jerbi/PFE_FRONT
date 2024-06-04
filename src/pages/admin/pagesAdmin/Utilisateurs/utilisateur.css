@@ -1,70 +1,96 @@
-.utilisateur-container {
-  width: 100%;
-  max-width: 800px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+.stands-container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  display: grid; /* Use CSS Grid for better layout control */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
-  gap: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 20px; /* Add some space below the heading */
+  color: #333;
+}
+
+.button-add {
+  display: block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-add a {
+  color: white;
+  text-decoration: none;
+}
+
+.utilisateur-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
 }
 
 .utilisateur-card {
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  background-color: #fff; /* Use a light background */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+  flex: 1 1 calc(33.333% - 40px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .utilisateur-field {
-  margin-bottom: 12px; /* Increase spacing between fields */
+  margin-bottom: 10px;
 }
 
 .field-name {
   font-weight: bold;
 }
 
-.field-value {
-  color: #333;
-}
-
 .button-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px; /* Add more space above buttons */
 }
 
-.button-container button {
+.button-consulter, .button-supprimer {
   padding: 10px 20px;
+  font-size: 14px;
   border: none;
-  border-radius: 4px;
-  background-color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-consulter {
+  background-color: #8B4513; /* Marron */
   color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Add smooth transition */
 }
 
-.button-container button:hover {
-  background-color: #0056b3;
+.button-consulter:hover {
+  background-color: #A0522D; /* Marron clair */
 }
 
-
-.button-add {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.button-supprimer {
+  background-color: #8B4513; /* Marron */
+  color: #fff;
 }
 
-.button-add:hover {
-  background-color: #0056b3;
+.button-supprimer:hover {
+  background-color: #A0522D; /* Marron clair */
 }

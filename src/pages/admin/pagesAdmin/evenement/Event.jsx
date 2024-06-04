@@ -50,17 +50,17 @@ function EventList() {
       ) : events.length > 0 ? (
         <ul className="event-list">
           {events.map(event => (
-            <li key={event._id} style={{ color: new Date(event.DateFin) < new Date(currentDate) ? 'red' : 'green' }}>
-              <div>
+            <li key={event._id} className="event-card" style={{ borderColor: new Date(event.DateFin) < new Date(currentDate) ? 'red' : 'green' }}>
+              <div className="event-content">
                 <h3>{event.EventName}</h3>
                 <p>{event.description}</p>
                 <p>Start Date: {new Date(event.DateDebut).toLocaleDateString()}</p>
                 <p>End Date: {new Date(event.DateFin).toLocaleDateString()}</p>
-                <img src={`http://localhost:3002/${event.photo}`} alt="Event" className='max-h-60 w-full'/> 
+                <img src={`http://localhost:3002/${event.photo}`} alt="Event" className='event-image'/> 
               </div>
               <div className="button-container">
-                <button onClick={() => handleConsulter(event._id)}>Modifier</button>
-                <button onClick={() => handleSupprimer(event._id)}>Supprimer</button>
+                <button className="modify-button" onClick={() => handleConsulter(event._id)}>Modifier</button>
+                <button className="delete-button" onClick={() => handleSupprimer(event._id)}>Supprimer</button>
               </div>
             </li>
           ))}

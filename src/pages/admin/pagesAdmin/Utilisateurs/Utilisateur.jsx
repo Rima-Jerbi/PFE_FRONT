@@ -66,8 +66,8 @@ function Utilisateur() {
               <span className="field-value">{user.Phone}</span>
             </div>
             <div className="button-container">
-              <button onClick={() => handleConsulter(user._id)}>Consulter</button>
-              <button onClick={() => handleSupprimer(user._id)}>Supprimer</button>
+              <button className="button-consulter" onClick={() => handleConsulter(user._id)}>Consulter</button>
+              <button className="button-supprimer" onClick={() => handleSupprimer(user._id)}>Supprimer</button>
             </div>
           </div>
         ))}

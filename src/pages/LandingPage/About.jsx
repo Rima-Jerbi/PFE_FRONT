@@ -48,24 +48,19 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
             <div className="text-center">
               <h3 className="text-2xl font-bold">7861</h3>
-              <p>Rooms</p>
+              <p>Reservations</p>
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold">1234</h3>
-              <p>Staff</p>
+              <p>Exposants</p>
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold">4321</h3>
               <p>Clients</p>
             </div>
-            <h2 className="text-xl uppercase font-bold mb-2 text-[#A67C52] flex items-center justify-center">
-            <span className="border-t-2 border-[#A67C52] w-12 mr-4"></span>
-            À Propos
-            <span className="border-t-2 border-[#A67C52] w-12 ml-4"></span>
-          </h2>
-            <div className="text-center">
+            <div className="text-center detection-count">
               <h3 className="text-2xl font-bold">{detectionCount}</h3>
-              <p>Détections de mouvement</p>
+              <p>places disponibles </p>
             </div>
           </div>
           <button className="bg-[#A67C52] text-white px-6 py-2 rounded-full">Explore More</button>
