@@ -10,8 +10,9 @@ const Auth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [register, setRegister] = useState(false);
-  const [nom, setNom] = useState('');
-  const [phone, setPhone] = useState('');
+  const [FullName, setFullName] = useState('');
+  const [Phone, setPhone] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null);
   const [selectedRole, setSelectedRole] = useState('user');
   const [exhibitorId, setExhibitorId] = useState('');
   const [exhibitorIdVisible, setExhibitorIdVisible] = useState(false);
@@ -19,15 +20,24 @@ const Auth = () => {
   const { login } = useContext(AuthContext);
 
   const registerUser = async () => {
-    await axios.post('http://localhost:3002/auth/register', {
-      username: username,
-      FullName: nom,
-      email: email,
-      password: password,
-      Phone: phone,
-      role: selectedRole,
-      exhibitorId: exhibitorId // Include exhibitorId in the registration data
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('FullName', FullName);
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('Phone', Phone);
+    formData.append('role', selectedRole);
+    formData.append('exhibitorId', exhibitorId);
+    if (selectedFile) {
+      formData.append('image', selectedFile);
+    }
+
+    await axios.post('http://localhost:3002/auth/register', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
     });
+
     if (selectedRole === 'user') {
       navigate('/client'); // Redirection vers la page utilisateur
     } else if (selectedRole === 'admin') {
@@ -44,7 +54,7 @@ const Auth = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     await login(email, password);
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       if (user.role === 'admin') {
         navigate('/admin');
@@ -61,6 +71,10 @@ const Auth = () => {
     } else {
       setExhibitorIdVisible(false);
     }
+  };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
   };
 
   return (
@@ -94,21 +108,29 @@ const Auth = () => {
                       <div className='form-group'>
                         <input
                           type='text'
-                          name='Full Name'
-                          value={nom}
-                          onChange={(e) => setNom(e.target.value)}
+                          name='FullName'
+                          value={FullName}
+                          onChange={(e) => setFullName(e.target.value)}
                           className='form-control'
-                          placeholder='Entrez votre nom'
+                          placeholder='Entrez votre nom complet'
                         />
                       </div>
                       <div className='form-group'>
                         <input
                           type='text'
                           name='Phone'
-                          value={phone}
+                          value={Phone}
                           onChange={(e) => setPhone(e.target.value)}
                           className='form-control'
                           placeholder='Entrez votre numéro de téléphone'
+                        />
+                      </div>
+                      <div className='form-group'>
+                        <input
+                          type='file'
+                          name='photo'
+                          onChange={handleFileChange}
+                          className='form-control'
                         />
                       </div>
                       <div className='form-group'>

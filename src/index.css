@@ -116,3 +116,10 @@ code {
 .profile-card .profile-actions button:hover {
   background-color: #495057;
 }
+.bg-brown-500 {
+  background-color: #A52A2A;
+}
+
+.hover\:bg-brown-700:hover {
+  background-color: #8B4513;
+}
