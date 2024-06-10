@@ -14,6 +14,7 @@ const Auth = () => {
   const [Phone, setPhone] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedRole, setSelectedRole] = useState('user');
+  const [serialNumber, setSerialNumber] = useState('');
   const [exhibitorId, setExhibitorId] = useState('');
   const [exhibitorIdVisible, setExhibitorIdVisible] = useState(false);
 
@@ -27,6 +28,7 @@ const Auth = () => {
     formData.append('password', password);
     formData.append('Phone', Phone);
     formData.append('role', selectedRole);
+    formData.append('serialNumber', serialNumber); // Ajoutez ce champ
     formData.append('exhibitorId', exhibitorId);
     if (selectedFile) {
       formData.append('image', selectedFile);
@@ -144,6 +146,18 @@ const Auth = () => {
                           <option value='exhibitor'>Exposant</option>
                         </select>
                       </div>
+                      {selectedRole === 'admin' && (
+                        <div className='form-group'>
+                          <input
+                            type='text'
+                            name='serialNumber'
+                            value={serialNumber}
+                            onChange={(e) => setSerialNumber(e.target.value)}
+                            className='form-control'
+                            placeholder='Entrez votre numéro de série'
+                          />
+                        </div>
+                      )}
                       {exhibitorIdVisible && (
                         <div className='form-group'>
                           <input
